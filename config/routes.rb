@@ -1,7 +1,7 @@
 NkuProject::Application.routes.draw do
 
-  resources :lists
+  resources :notes
 
-  root :to => "lists#index"
-  
+  #root :to =>"notes#index"
+  root "notes#index"
 end
