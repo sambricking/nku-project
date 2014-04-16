@@ -7,7 +7,7 @@ class NotesController < ApplicationController
     @note = Note.new(note_params)
    
     if @note.save
-      redirect_to @note
+      redirect_to notes_path
     else
       render 'new'
     end
@@ -20,6 +20,7 @@ class NotesController < ApplicationController
 
   def index
     @notes = Note.all
+    @note = Note.new
   end
   def edit
     @note = Note.find(params[:id])
