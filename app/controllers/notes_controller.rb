@@ -19,7 +19,7 @@ class NotesController < ApplicationController
   end
 
   def index
-    @notes = Note.all
+    @notes = current_user.notes
     @note = Note.new
   end
   def edit
@@ -45,7 +45,8 @@ class NotesController < ApplicationController
   
 private
   def note_params
-    params.require(:note).permit(:title, :text)
+    params[:note][:user_id] = current_user.id
+    params.require(:note).permit(:title, :text, :user_id)
   end
 
 
