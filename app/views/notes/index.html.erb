@@ -4,15 +4,16 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th>Actions</th>
   </tr>
  
   <% @notes.each do |note| %>
     <tr>
       <td><%= note.title %></td>
       <td><%= note.text %></td>
-      <td><%= link_to 'Show', note_path(note) %></td>
-      <td><%= link_to 'Edit', edit_note_path(note) %></td>
-      <td><%= link_to 'Destroy', note_path(note),
+      <td>
+      <%= link_to 'Edit', edit_note_path(note), :class => "btn btn-default btn-xs" %>
+      <%= link_to 'Delete', note_path(note), :class => "btn btn-default btn-xs",
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
