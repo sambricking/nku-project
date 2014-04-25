@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :notes,
-        dependent: :destroy
+  has_many :share_user_notes
+  has_many :notes, dependent: :destroy, :through => :share_user_notes
   attr_accessor :password
   before_save :encrypt_password
   
