@@ -30,7 +30,7 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
  
     if @note.update(note_params)
-      redirect_to @note
+      redirect_to notes_path
     else
       render 'edit'
     end

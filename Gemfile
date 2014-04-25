@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'thin'
 gem 'bcrypt'
-
+gem 'batman-rails'
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'

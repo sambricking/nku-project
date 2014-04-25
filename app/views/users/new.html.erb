@@ -2,22 +2,22 @@
 <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
+        
         <div class="well well-sm">
           <form class="form-horizontal">
           <fieldset>
             <legend class="text-center">Sign Up</legend>
-    
-            
-              <% if @user.errors.any? %>
+                  <% if @user.errors.any? %>
                   <div class="error_messages">
-                    <h2>Form is invalid</h2>
                     <ul>
                       <% for message in @user.errors.full_messages %>
-                        <li><%= message %></li>
+                        <%= content_tag :div, message, :class => "bg-danger" %>
                       <% end %>
                     </ul>
                   </div>
                 <% end %>
+            
+
             <div class="form-group">
               <label class="col-md-4 control-label" for="name">Email</label>
               <div class="col-md-7">
