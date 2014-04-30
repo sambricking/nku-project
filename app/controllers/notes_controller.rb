@@ -5,9 +5,9 @@ class NotesController < ApplicationController
    
   def create
     @note = Note.new(note_params)
-    
+
     if @note.save
-      ShareUserNote.create(user_id: current_user.id, note_id: @note.id)
+      ShareUserNote.create!(user_id: current_user.id, note_id: @note.id)
       redirect_to notes_path
     else
       render 'new'
@@ -23,6 +23,8 @@ class NotesController < ApplicationController
     @notes = current_user.notes
     #@notes = Note.
     @note = Note.new
+    @share = ShareUserNote.new
+    #@shared = ShareUserNote.where(User = current_user).email
   end
   def edit
     @note = Note.find(params[:id])

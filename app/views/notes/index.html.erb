@@ -14,8 +14,15 @@
       <td>
       <%= link_to 'Edit', edit_note_path(note), :class => "btn btn-default btn-xs" %>
       <%= link_to 'Delete', note_path(note), :class => "btn btn-default btn-xs",
-                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= form_for @share do |f| %>
+        <%= f.text_field :user_id %>
+        <%= hidden_field_tag :note_id, note.id %>
+      <% end %>
+  
+      </td>
     </tr>
   <% end %>
+
 
 </table>
