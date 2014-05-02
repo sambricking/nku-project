@@ -1,4 +1,5 @@
-<h1>Listing notes</h1>
+<div class="container">
+<h1>My Shitty Notes</h1>
 <%= render 'form' %> 
 <table class="table">
   <tr>
@@ -25,13 +26,21 @@
     </tr>
   <% end %>
   
-  
-
 </table>
-
+</div>
+  
+<div class="container">
+<h1>Shitty Notes Shared With Me</h1>
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr> 
 <% @shares.each do |share| %>
-    <tr>
-      <td><%= Note.find(share.note_id).title %></td></br>
-      <td><%= Note.find(share.note_id).text %></td>
-    </tr>
+  <tr>
+    <td><%= Note.find(share.note_id).title %></td>
+    <td><%= Note.find(share.note_id).text %></td>
+  </tr>
 <% end %>
+</table>
+</div>  
