@@ -4,9 +4,10 @@ class ShareUserNotesController < ActionController::Base
   def create
     @share  = ShareUserNote.new
     if @share.save
-      user_id = params[:share_user_note][:user_id]
+      #email = User.where(email: params[:share_user_note][:user_id])
+      email = params[:share_user_note][:user_id]
       note = params[:note_id]
-      ShareUserNote.create(user_id: user_id, note_id: note)
+      ShareUserNote.create(user_id: email, note_id: note)
       redirect_to notes_url, :notice => "Shared note"
     else
       render 'new'
