@@ -1,4 +1,5 @@
 <div class="container">
+<div class="well well-sm">
 <h1>My Shitty Notes</h1>
 <%= render 'form' %> 
 <table class="table">
@@ -13,23 +14,27 @@
       <td><%= note.title %></td>
       <td><%= note.text %></td>
       <td>
-      <%= link_to 'Edit', edit_note_path(note), :class => "btn btn-default btn-xs" %>
-      <%= link_to 'Delete', note_path(note), :class => "btn btn-default btn-xs",
-                    method: :delete, data: { confirm: 'Are you sure?' } %>
+
       <%= form_for @share do |f| %>
-        <%= f.text_field :email %>
+        <%= link_to 'Edit', edit_note_path(note), :class => "btn btn-default btn-xs" %>
+        <%= link_to 'Delete', note_path(note), :class => "btn btn-default btn-xs",
+                        method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= f.text_field :email, :placeholder => "User Email" %>
         <%= hidden_field_tag :note_id, note.id %>
-        
+        <%= f.submit "Share", :class => "btn btn-default btn-xs" %>
       <% end %>
-  
+      
       </td>
+
     </tr>
   <% end %>
   
 </table>
 </div>
-  
+</div>
+
 <div class="container">
+<div class="well well-sm">
 <h1>Shitty Notes Shared With Me</h1>
 <table class="table">
   <tr>
@@ -44,3 +49,4 @@
 <% end %>
 </table>
 </div>  
+</div>
