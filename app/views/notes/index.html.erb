@@ -16,13 +16,22 @@
       <%= link_to 'Delete', note_path(note), :class => "btn btn-default btn-xs",
                     method: :delete, data: { confirm: 'Are you sure?' } %>
       <%= form_for @share do |f| %>
-        <%= f.text_field :user_id %>
+        <%= f.text_field :email %>
         <%= hidden_field_tag :note_id, note.id %>
+        
       <% end %>
   
       </td>
     </tr>
   <% end %>
-
+  
+  
 
 </table>
+
+<% @shares.each do |share| %>
+    <tr>
+      <td><%= Note.find(share.note_id).title %></td></br>
+      <td><%= Note.find(share.note_id).text %></td>
+    </tr>
+<% end %>

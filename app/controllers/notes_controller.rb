@@ -24,7 +24,7 @@ class NotesController < ApplicationController
     #@notes = Note.
     @note = Note.new
     @share = ShareUserNote.new
-    #@shared = ShareUserNote.where(User = current_user).email
+    @shares = ShareUserNote.where(email: current_user.email)
   end
   def edit
     @note = Note.find(params[:id])
